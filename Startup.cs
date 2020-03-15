@@ -27,8 +27,9 @@ namespace MissionaryTrackerApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MissionaryTrackerDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbConnection2"))); //Apparently returns null connection string
             services.AddControllers();
-            services.AddDbContextPool<MissionaryTrackerDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbConnection")));
+            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
