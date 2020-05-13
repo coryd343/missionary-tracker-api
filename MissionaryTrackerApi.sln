@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionaryTrackerApi", "MissionaryTrackerApi.csproj", "{A7D75FF0-A3B2-4BAE-BE1A-50AF8AA0F980}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionaryTrackerApi.Data", "..\MissionaryTrackerApi.Data\MissionaryTrackerApi.Data.csproj", "{AA707CDB-08D0-4249-A23E-8AF3DD136E4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionaryTrackerApi.Data", ".\MissionaryTrackerApi.Data\MissionaryTrackerApi.Data.csproj", "{AA707CDB-08D0-4249-A23E-8AF3DD136E4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
