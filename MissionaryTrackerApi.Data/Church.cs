@@ -6,12 +6,9 @@ namespace MissionaryTrackerApi.Model
 {
     public class Church
     {
-        public int id { get; set; }
-        public string churchName { get; set; }
-        public string streetAddress { get; set; }
-        public string city { get; set; }
-        public string stateCode { get; set; }
-        public int zipCode { get; set; }
-        public string phone { get; set; }
-    }
+        public Guid Id { get; set; }
+        public string ChurchName { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
+  }
 }
