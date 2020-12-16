@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using MissionaryTrackerApi.Model;
+using MissionaryTrackerApi.Data;
 
 namespace MissionaryTrackerApi
 {

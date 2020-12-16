@@ -1,17 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MissionaryTrackerApi.Model
+namespace MissionaryTrackerApi.Data
 {
-    public class Member
+    public partial class Member
     {
-        public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime Birthday { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime DateUpdated { get; set; }
-  }
+        public Member()
+        {
+            Missionarymember = new HashSet<Missionarymember>();
+        }
+
+        [Key]
+        public int Id { get; set; }
+        public Guid? UserId { get; set; }
+        public Guid? CreatedBy { get; set; }
+        public DateTime? DateCreated { get; set; }
+
+        [ForeignKey(nameof(UserId))]
+        [InverseProperty("Member")]
+        public virtual User User { get; set; }
+        [InverseProperty("Member")]
+        public virtual ICollection<Missionarymember> Missionarymember { get; set; }
+    }
 }

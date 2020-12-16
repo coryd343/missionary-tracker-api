@@ -5,26 +5,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MissionaryTrackerApi.Data
 {
-    [Table("phone")]
-    public partial class Phone
+    [Table("ministry")]
+    public partial class Ministry
     {
-        public Phone()
-        {
-            Userphone = new HashSet<Userphone>();
-        }
-
         [Key]
         [Column("id")]
         public int Id { get; set; }
-        public int Number { get; set; }
         [Required]
-        public string Type { get; set; }
+        public string Name { get; set; }
+        [Column("description")]
+        public string Description { get; set; }
         [Column("createdby")]
         public Guid? Createdby { get; set; }
         [Column("datecreated", TypeName = "timestamp with time zone")]
         public DateTime? Datecreated { get; set; }
-
-        [InverseProperty("Phone")]
-        public virtual ICollection<Userphone> Userphone { get; set; }
     }
 }
