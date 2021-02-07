@@ -17,11 +17,13 @@ namespace MissionaryTrackerApi.Data
 
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<Church> Church { get; set; }
+        public virtual DbSet<Media> Media { get; set; }
         public virtual DbSet<Member> Member { get; set; }
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<Ministry> Ministry { get; set; }
         public virtual DbSet<MissionaryGroup> MissionaryGroup { get; set; }
         public virtual DbSet<Missionarychurch> Missionarychurch { get; set; }
+        public virtual DbSet<Missionarygroupmedia> Missionarygroupmedia { get; set; }
         public virtual DbSet<Missionarymember> Missionarymember { get; set; }
         public virtual DbSet<Phone> Phone { get; set; }
         public virtual DbSet<User> User { get; set; }
@@ -46,6 +48,15 @@ namespace MissionaryTrackerApi.Data
                     .WithMany(p => p.Church)
                     .HasForeignKey(d => d.AddressId)
                     .HasConstraintName("address_id_fk");
+            });
+
+            modelBuilder.Entity<Media>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd()
+                    .UseIdentityAlwaysColumn();
             });
 
             modelBuilder.Entity<Member>(entity =>
@@ -97,6 +108,11 @@ namespace MissionaryTrackerApi.Data
                     .WithMany(p => p.Missionarychurch)
                     .HasForeignKey(d => d.Missionaryid)
                     .HasConstraintName("missionary_id_fk");
+            });
+
+            modelBuilder.Entity<Missionarygroupmedia>(entity =>
+            {
+                entity.HasNoKey();
             });
 
             modelBuilder.Entity<Missionarymember>(entity =>
